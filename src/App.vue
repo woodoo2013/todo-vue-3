@@ -1,18 +1,12 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>Todo List Vue 3</h1>
+    <hr>
+    <router-link to="/">Home</router-link>
+    <router-link to="/todos">Todos</router-link>
+    <router-view />
+  </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -21,6 +15,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+a {
+  text-decoration: none;
+  margin: 20px;
+  font-size: 40px;
+  color: #2C3E50;
+}
+
+h1 {
+  margin-top: 20px;
 }
 </style>
