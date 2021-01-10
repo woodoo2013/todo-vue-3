@@ -1,14 +1,12 @@
 <template>
   <div>
+    <h2>{{ boardItem }}</h2>
     <add-todo @addNewTask="addNewTask"/>
     <Loader v-if="loading"/>
-    <todo-list v-else-if="todos.length" :todos="todos" @click="removeTodo" />
+    <todo-list v-else-if="todos.length" :todos="todos" @removeTodo="removeTodo" />
     <h3 v-else>Пока запланированых дел нет</h3>
-
   </div>
 </template>
-
-
 
 <script>
 import TodoList from "@/components/TodoList";
@@ -20,8 +18,11 @@ export default {
   data() {
     return {
       loading: true,
-      todos: []
+      todos: [],
     }
+  },
+  props: {
+    boardItem: String,
   },
   mounted() {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
@@ -35,11 +36,11 @@ export default {
   components: {
     Loader,
     AddTodo,
-    TodoList
+    TodoList,
   },
   methods: {
     removeTodo(id) {
-      this.todos.splice(id, 1)
+      this.todos.splice(id - 1, 1)
     },
     addNewTask(newTask) {
       this.todos.push(newTask)

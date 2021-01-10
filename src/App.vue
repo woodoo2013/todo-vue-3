@@ -3,7 +3,7 @@
     <h1>Todo List Vue 3</h1>
     <hr>
     <router-link to="/">Home</router-link>
-    <router-link to="/todos">Todos</router-link>
+    <router-link to="/board">Board</router-link>
     <router-view />
   </div>
 </template>

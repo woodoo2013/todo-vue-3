@@ -1,19 +1,19 @@
 import { createWebHashHistory, createRouter } from "vue-router";
-import Todos from "@/views/Todos.vue";
 import Home from "@/views/Home"
+import Board from "@/components/Board";
 
 
 const routes = [
     {
-        path: "/todos",
-        name: "Todos",
-        component: Todos,
-    },
-    {
         path: "/",
         name: "Home",
         component: Home
-    }
+    },
+    {
+        path: "/board",
+        name: "Board",
+        component: Board,
+    },
 ];
 
 const router = createRouter({

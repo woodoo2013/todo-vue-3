@@ -1,7 +1,13 @@
 <template>
   <div class="todo-list">
     <ul>
-      <todo-list-item v-for="todo in todos" :key="todo.id" :todo="todo" @deleteTodo="deleteTodo"/>
+      <todo-list-item
+          v-for="(todo, index) in todos"
+          :index="index"
+          :key="todo.id"
+          :todo="todo"
+          @removeTodo="removeTodo"
+      />
     </ul>
   </div>
 </template>
@@ -9,15 +15,17 @@
 <script>
 
 import TodoListItem from "@/components/TodoListItem";
+
+
 export default {
-  name: 'HelloWorld',
+  name: 'TodoList',
   components: {
     TodoListItem
   },
-  props: ['todos'],
+  props: ['todos', 'index'],
   methods: {
-    deleteTodo(id) {
-      this.$emit('deleteTodo', id)
+    removeTodo(id) {
+      this.$emit('removeTodo', id - 1)
     },
   }
 }
@@ -39,7 +47,7 @@ ul {
   padding: 0;
   flex-flow: column;
   justify-content: center;
-  width: 1000px;
+  width: 500px;
   align-items: center;
 }
 
